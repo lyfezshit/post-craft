@@ -1,4 +1,4 @@
-// src/pages/Home.jsx
+
 import { useState } from "react";
 import { Toaster, toast } from "sonner";
 
@@ -22,7 +22,7 @@ export const Home = () => {
     extras: [],
   });
 
-  /* tmdb*/
+  /tmdb/
   const fetchData = async () => {
     try {
       const res = await fetch(
