@@ -375,6 +375,7 @@ export const Home = () => {
                             >
                                 <option>Single</option>
                                 <option>Dual</option>
+                                <option>Multi</option>
                             </select>
                             <input
                                 type="text"
@@ -390,7 +391,7 @@ export const Home = () => {
                 <div className="bg-gray-800 p-6 rounded-lg shadow-lg flex flex-col justify-between">
                     <h2 className="text-xl font-semibold mb-4">POSTERS</h2>
                     <div className="flex flex-wrap gap-2">
-                        {posters.slice(0, 5).map((poster, idx) => (
+                        {posters.slice(0, 4).map((poster, idx) => (
                             <div key={idx} className="text-center">
                                 <img
                                     src={`https://image.tmdb.org/t/p/w500${poster.file_path}`}
@@ -414,6 +415,7 @@ export const Home = () => {
                         placeholder="Embed URL"
                         value={trailerUrl}
                         onChange={(e) => setTrailerUrl(e.target.value)}
+                        
                         className=" p-2 rounded-md bg-gray-700 text-gray-200 border border-gray-600"
                     />
                 </div>
