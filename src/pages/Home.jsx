@@ -1,6 +1,13 @@
 
 import { useState } from "react";
 import { Toaster, toast } from "sonner";
+import { Trash2 } from "lucide-react";
+
+
+
+
+
+
 
 export const Home = () => {
 
@@ -232,13 +239,13 @@ export const Home = () => {
                         onClick={fetchData}
                         className="px-4 py-2 bg-blue-600 text-white rounded-md font-medium hover:bg-blue-700 transition-colors"
                     >
-                        Fetch Data
+                        Search
                     </button>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-                    <div className="bg-gray-800  p-4 rounded-lg shadow-lg col-span-1 lg:col-span-2">
+                <div className="grid  md:grid-cols-2   gap-5">
+                    <div className="bg-gray-800  p-2 rounded-lg shadow-lg col-span-2 lg:col-span-1">
                         <h2 className="text-xl font-semibold mb-4">MEDIA INFO</h2>
-                        <div className="flex space-x-2 mb-4">
+                        <div className="flex space-x-2 ">
                             <button
                                 className={`px-4 py-2 rounded-md font-medium transition-colors ${type === "movie"
                                         ? "bg-blue-600 text-white"
@@ -284,6 +291,7 @@ export const Home = () => {
                         </div>
                     </div>
 
+                    
                     <div className="bg-gray-800 p-6 rounded-lg shadow-lg col-span-1">
                         <h2 className="text-xl font-semibold mb-4">TITLE GENERATOR</h2>
                         <div className="space-y-4">
@@ -357,9 +365,9 @@ export const Home = () => {
                         </div>
                     </div>
 
-                    <div className="bg-gray-800 p-6 rounded-lg shadow-lg">
+                    <div className="bg-gray-800 p-4 rounded-lg shadow-lg">
                         <h2 className="text-xl font-semibold mb-4">AUDIO</h2>
-                        <div className="flex  flex-wrap items-center space-x-1">
+                        <div className="flex flex-wrap items-center space-x-1">
                             <select
                                 value={audio.type}
                                 onChange={(e) => setAudio({ ...audio, type: e.target.value })}
@@ -372,7 +380,7 @@ export const Home = () => {
                                 type="text"
                                 value={audio.language}
                                 onChange={(e) => setAudio({ ...audio, language: e.target.value })}
-                                className="flex-1 p-2 rounded-md bg-gray-700 text-gray-200 border border-gray-600"
+                                className=" p-2 flex-1 min-w-[120px] rounded-md bg-gray-700 mb-1 text-gray-200 border border-gray-600"
                                 placeholder="Language"
                             />
                         </div>
@@ -437,9 +445,13 @@ export const Home = () => {
                             className="flex items-center justify-between bg-gray-700 p-2 rounded-md"
                         >
                             <span className="text-sm truncate flex-1">{link.fileName}</span>
-                            <span className="text-xs text-gray-400 ml-2">
-                                {link.quality} • {link.printType} • {link.audio}
-                            </span>
+                            <button
+                                        onClick={() =>
+                                        setDriveLinks((prev) => prev.filter((_, i) => i !== index))
+                                        }
+                                        className="ml-3 text-red-400 hover:text-red-300 text-lg font-bold leading-none"
+                                        title="Delete"
+                                    >  <Trash2 size={16} /></button>
                         </div>
                     ))}
 
