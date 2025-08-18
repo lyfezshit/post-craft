@@ -4,11 +4,6 @@ import { Toaster, toast } from "sonner";
 import { Trash2 } from "lucide-react";
 
 
-
-
-
-
-
 export const Home = () => {
 
     const [searchId, setSearchId] = useState("");
@@ -271,6 +266,7 @@ export const Home = () => {
                                 <input
                                     type="text"
                                     value={fileInfo ? fileInfo.title || fileInfo.name : "Movie/Series Title"}
+                                    readOnly
                                     
                                     className="w-full p-2 rounded-md bg-gray-700 text-gray-300 border border-gray-600"
                                 />
@@ -284,6 +280,7 @@ export const Home = () => {
                                             ? (fileInfo.release_date || fileInfo.first_air_date)?.split("-")[0]
                                             : "Year"
                                     }
+                                    readOnly
                                    
                                     className="w-full p-2 rounded-md bg-gray-700 text-gray-300 border border-gray-600"
                                 />
@@ -476,7 +473,8 @@ export const Home = () => {
                     
 
                 <h1 className="text-xl font-bold mb-2 ">Download</h1>
-                <div className="bg-white min-h-screen rounded-lg text-black p-4" />
+                    
+                    
                 </div>
              </section>
             
